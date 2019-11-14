@@ -1,0 +1,15 @@
+---
+- hosts: vyos
+  gather_facts: yes
+  module_defaults: 
+    vyos_facts:
+      gather_subset: default
+      gather_network_resources:
+        - static_routes     
+  tasks:
+    - name: Merge the provided configuration with the exisiting running configuration
+      vyos_static_routes: &gathered
+        config:
+        state: 'gathered'
+
+
