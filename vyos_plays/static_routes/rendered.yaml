@@ -1,0 +1,33 @@
+---
+- hosts: vyos
+  gather_facts: yes
+  module_defaults: 
+    vyos_facts:
+      gather_subset: default
+      gather_network_resources:
+        - static_routes     
+  tasks:
+    - name: Structured provided configuration without connecting to the device
+      vyos_static_routes: &rendered
+        config:
+         - address_families:
+           - afi: 'ipv4'
+             routes:
+               - dest: 195.1.1.0/24        
+                 blackhole_config:
+                   type: 'blackhole'
+                 next_hops:
+                   - forward_router_address: 195.55.55.55
+                   - forward_router_address: 192.56.56.56
+         - address_families:
+           - afi: 'ipv6'
+             routes: 
+               - dest: 9001:db9::0/32
+                 blackhole_config:
+                   distance: 3 
+                 next_hops:
+                   - forward_router_address: 9001:db9::99
+                   - forward_router_address: 9001:db9::9
+        state: 'rendered'
+
+
