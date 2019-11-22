@@ -1,0 +1,15 @@
+[asa]
+x.x.x.x
+[asa:vars]
+ansible_network_os=asa
+ansible_connection=network_cli
+
+ansible_ssh_user=ansible
+ansible_ssh_pass=Cisc0123
+ansible_become_method=enable
+ansible_become=true
+ansible_become_pass=cisco
+#ansible_become_user=enable
+
+#ansbile_ssh_private_key_file=./rthakurasa.pem
+
