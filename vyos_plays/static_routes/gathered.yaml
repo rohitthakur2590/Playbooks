@@ -7,7 +7,7 @@
       gather_network_resources:
         - static_routes     
   tasks:
-    - name: Gether the exisiting running configuration
+    - name: Gathere the exisiting running configuration
       vyos_static_routes: &gathered
         config:
         state: 'gathered'
