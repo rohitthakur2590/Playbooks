@@ -7,7 +7,7 @@
       gather_network_resources:
         - firewall_rules
   tasks: 
-   - name: Gather static_routes facts
+   - name: Gather firewall_rules facts
      vyos_facts:
        gather_subset:
          - default
