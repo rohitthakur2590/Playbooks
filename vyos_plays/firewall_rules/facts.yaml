@@ -1,0 +1,15 @@
+---
+- hosts: vyos
+  gather_facts: yes
+  module_defaults: 
+    vyos_facts:
+      gather_subset: default
+      gather_network_resources:
+        - firewall_rules
+  tasks: 
+   - name: Gather firewall_rules facts
+     vyos_facts:
+       gather_subset:
+         - default
+       gather_network_resources:
+         - firewall_rules
