@@ -1,0 +1,8 @@
+---
+- hosts: asa
+  tasks:
+     - name: "Show the ASA version"
+       asa_command:
+         commands:
+           - show version
+

@@ -1,0 +1,21 @@
+---
+- hosts: asa
+  gather_facts: yes
+  tasks:
+    - name: get configured interfaces
+      asa_command:
+        commands:
+          - show interface ip brief | grep CONFIG up
+      register: asa_interfaces_pre
+
+    - set_fact:
+        asa_interfaces: "{{ asa_interfaces_pre.stdout_lines.0 | map('regex_replace', ' .*$') | list }}"
+
+    - name: get v6 addresses
+      asa_command:
+        commands:
+          - show run interface | grep ipv6 address
+      register: asa_v6_ips
+
+    - debug:
+        var: asa_v6_ips.results
