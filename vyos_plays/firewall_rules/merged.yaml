@@ -23,12 +23,25 @@
                rules:
                  - number: 101
                    action: 'accept'
-                   description: 'This is configured by Ansible'
+                   description: 'Rule 103 is configured by Ansible'
                    ipsec: 'match-ipsec'
                  - number: 102
                    action: 'reject'
-                   description: 'This is configured by Ansible'
+                   description: 'Rule 103 is configured by Ansible'
                    ipsec: 'match-ipsec'
+                 - number: 103
+                   action: 'accept'
+                   description: 'Rule 103 is configured by Ansible'
+                   destination:
+                     group:
+                       address_group: 'inbound'
+                   source:
+                     address: '192.0.2.0'
+                   state:
+                     established: true
+                     new: false
+                     invalid: false
+                     related: true
 
        state: merged              
 
