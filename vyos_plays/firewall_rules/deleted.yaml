@@ -7,7 +7,10 @@
       gather_network_resources:
         - firewall_rules
   tasks: 
-   - name: Delete all the firewalls configured.
+   - name: Merge the provided configuration.
      vyos_firewall_rules: &deletd
        config:
+         - afi: ipv4
+           rule_sets:
+             - name: INBOUND      
        state: deleted
