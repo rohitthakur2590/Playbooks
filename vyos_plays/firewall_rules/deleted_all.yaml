@@ -7,9 +7,7 @@
       gather_network_resources:
         - firewall_rules
   tasks: 
-   - name: Gather static_routes facts
-     vyos_facts:
-       gather_subset:
-         - default
-       gather_network_resources:
-         - firewall_rules
+   - name: Merge the provided configuration.
+     vyos_firewall_rules: &deletd
+       config:
+       state: deleted

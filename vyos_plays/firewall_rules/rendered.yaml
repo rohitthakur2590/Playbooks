@@ -7,24 +7,14 @@
       gather_network_resources:
         - firewall_rules
   tasks: 
-   - name: Merge the provided configuration.
-     vyos_firewall_rules: &merged
+   - name: Form the commands for the provided configuration.
+     vyos_firewall_rules: &rendered
        config:
          - afi: 'ipv6'
            rule_sets:
            - name: 'UPLINK'
              description: 'This is ipv6 specific rule-set'
              default_action: 'accept'
-             rules:
-               - number: 1
-                 action: 'accept'
-                 description: 'Fwipv6-Rule 1 is configured by Ansible'
-                 ipsec: 'match-ipsec'
-               - number: 2
-                 action: 'accept'
-                 description: 'Fwipv6-Rule 2 is configured by Ansible'
-                 ipsec: 'match-ipsec'
-
          - afi: 'ipv4'
            rule_sets:
              - name: 'INBOUND'
@@ -53,7 +43,7 @@
                      invalid: false
                      related: true
 
-       state: merged              
+       state: rendered              
 
 
 

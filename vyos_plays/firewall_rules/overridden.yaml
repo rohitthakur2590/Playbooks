@@ -1,0 +1,32 @@
+---
+- hosts: vyos
+  gather_facts: yes
+  module_defaults: 
+    vyos_facts:
+      gather_subset: default
+      gather_network_resources:
+        - firewall_rules
+  tasks: 
+   - name: Merge the provided configuration.
+     vyos_firewall_rules: &overridden
+       config:
+         - afi: 'ipv4'
+           rule_sets:
+             - name: 'Downlink'
+               description: 'IPv4 INBOUND rule set'
+               default_action: 'accept'
+               rules:
+                 - number: 501
+                   action: 'accept'
+                   description: 'Rule 501 is configured by Ansible'
+                   ipsec: 'match-ipsec'
+                 - number: 502
+                   action: 'reject'
+                   description: 'Rule 502 is configured by Ansible'
+                   ipsec: 'match-ipsec'
+                 
+       state: overridden              
+
+
+
+             

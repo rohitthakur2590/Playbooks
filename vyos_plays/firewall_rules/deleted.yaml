@@ -8,9 +8,9 @@
         - firewall_rules
   tasks: 
    - name: Merge the provided configuration.
-     vyos_firewall_rules: &deletd
+     vyos_firewall_rules: &deleted
        config:
          - afi: ipv4
            rule_sets:
-             - name: INBOUND      
+             - name: 'Downlink'      
        state: deleted
