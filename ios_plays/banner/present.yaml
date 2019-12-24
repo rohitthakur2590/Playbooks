@@ -1,0 +1,9 @@
+---
+- hosts: ios
+  gather_facts: yes
+  tasks:
+    - name: configure the login banner
+      ios_banner:
+        banner: exec
+        text: "{{ lookup('template', 'banner2.j2') }}"
+        state: present
