@@ -1,0 +1,15 @@
+---
+- hosts: vyos
+  gather_facts: yes
+  module_defaults: 
+    vyos_facts:
+      gather_subset: default
+      gather_network_resources:
+        - firewall_global
+  tasks: 
+   - name: Gather static_routes facts
+     vyos_facts:
+       gather_subset:
+         - default
+       gather_network_resources:
+         - firewall_global

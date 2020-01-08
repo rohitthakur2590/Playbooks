@@ -1,0 +1,9 @@
+---
+- hosts: vyos
+  tasks:
+    - name: Gathere the exisiting running configuration
+      vyos_firewall_rules: &parsed
+        running_config: "{{ lookup('file', 'vyos_config.cfg') }}"
+        state: parsed
+      register: result
+      tags: parsed
