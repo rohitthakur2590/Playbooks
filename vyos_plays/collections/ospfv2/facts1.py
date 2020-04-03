@@ -9,4 +9,5 @@
        gather_subset:
          - default
        gather_network_resources:
-         - ospf_global
+         - ospfv2
+
