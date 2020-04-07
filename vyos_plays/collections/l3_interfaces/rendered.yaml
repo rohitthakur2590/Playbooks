@@ -4,11 +4,10 @@
   collections:
     - vyos.vyos
   tasks:
-   - name: ospf_global
-     vyos.vyos.vyos_ospf_global: &id001
+   - name: ospfv2
+     vyos.vyos.vyos_ospfv2: &id001
        config:
-         - afi: 'ipv4'
-           log_adjacency_changes: 'detail'
+         - log_adjacency_changes: 'detail'
            max_metric:
              router_lsa:
                administrative: true
@@ -66,6 +65,4 @@
                range:
                  - address: '1.1.2.0/24'
                    cost: 10
-                   
-
-       state: merged
+       state: rendered
