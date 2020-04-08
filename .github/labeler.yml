@@ -2,3 +2,7 @@ network:
   - ./**
   - vyos_plays/**/*
   - ios_plays/**/*
+vyos:
+  - vyos_plays/**/*
+ios:
+  - vyos_plays/**/*
