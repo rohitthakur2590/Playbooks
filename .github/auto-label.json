@@ -1,0 +1,3 @@
+label: rule:
+
+{ [key: string]: string | string[] }
