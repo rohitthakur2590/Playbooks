@@ -1,2 +1,2 @@
 # Playbooks
-Playbooks consisting operations  for  Network device Platforms 
+Playbooks per collections consisting operations  for  Network device Platforms 
