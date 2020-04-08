@@ -32,7 +32,6 @@
              - route_type: 'bgp'
                metric: 10
                metric_type: 2
-               # route_map: 'ingress'
            passive_interface:
              - 'eth1'
              - 'eth2'
