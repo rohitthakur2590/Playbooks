@@ -5,4 +5,4 @@ network:
 vyos:
   - vyos_plays/**/*
 ios:
-  - vyos_plays/**/*
+  - ios_plays/**/*
