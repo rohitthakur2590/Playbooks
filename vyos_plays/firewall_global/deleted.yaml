@@ -1,0 +1,16 @@
+---
+- hosts: vyos
+  gather_facts: yes
+  module_defaults: 
+    vyos_facts:
+      gather_subset: default
+      gather_network_resources:
+        - firewall_rules
+  tasks: 
+   - name: Merge the provided configuration.
+     vyos_firewall_rules: &deleted
+       config:
+         - afi: ipv4
+           rule_sets:
+             - name: 'Downlink'      
+       state: deleted
