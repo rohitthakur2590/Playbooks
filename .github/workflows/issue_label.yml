@@ -4,15 +4,6 @@ on:
 
 
 jobs:
-  greeting:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/first-interaction@v1
-      with:
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-        issue-message: 'just so you are aware we have a dedicated Working Group for network. You can find other people interested in this in #ansible-network on Freenode IRC For more information about communities, meetings and agendas see https://github.com/ansible/community'
-        pr-message: 'just so you are aware we have a dedicated Working Group for network. You can find other people interested in this in #ansible-network on Freenode IRC For more information about communities, meetings and agendas see https://github.com/ansible/community'
-     
   triage:
     runs-on: ubuntu-latest
     steps:
