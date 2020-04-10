@@ -7,7 +7,7 @@
       gather_network_resources:
         - firewall_rules
   tasks: 
-   - name: Merge the provided configuration.
+   - name: Merge the provided configuration in lab device.
      vyos_firewall_rules: &merged
        config:
          - afi: 'ipv6'
